@@ -15,7 +15,7 @@ const utils = require('./includes/utilities.js');
  * @static
  */
 gulp.task('clean', () => {
-  return del(['upload', 'dist']);
+  return del(['deploy', 'dist']);
 });
 
 /**

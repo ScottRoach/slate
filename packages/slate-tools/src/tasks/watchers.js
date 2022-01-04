@@ -27,7 +27,7 @@ function checkDeployStatus() {
   }
 
   if (cache.change.length) {
-    deploy('upload', cache.change, environment);
+    deploy('deploy', cache.change, environment);
     cache.change = [];
   } else if (cache.unlink.length) {
     deploy('remove', cache.unlink, environment);
@@ -52,16 +52,12 @@ function deploy(cmd, files, env) {
   return new Promise((resolve, reject) => {
     debug(`themekit cwd to: ${config.dist.root}`);
 
-    themekit.command({
-      args: [cmd, '--env', env].concat(files),
-      cwd: config.dist.root,
-    }, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
+    themekit.command(cmd,
+      {env, files},
+      {cwd: config.dist.root}
+    ).then(() => {
+      resolve()
+    })
   }).then(() => {
     activeDeploy = false;
     fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync

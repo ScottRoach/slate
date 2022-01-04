@@ -57,7 +57,7 @@ const messages = {
 
   logDeploys: (cmd, files) => {
     const timestamp = `Deploy complete @ ${new Date()}. `;
-    const action = cmd === 'upload' ? 'added/changed ' : 'removed ';
+    const action = cmd === 'deploy' ? 'added/changed ' : 'removed ';
     const amount = `${files.length} file(s): `;
     const fileList = `${files.join(', ')}.\n`;
 
@@ -66,7 +66,7 @@ const messages = {
 
   logDeployErrors: (cmd, files, err) => {
     const timestamp = `Deploy error @ ${new Date()}. `;
-    const action = cmd === 'upload' ? 'added/changed ' : 'removed ';
+    const action = cmd === 'deploy' ? 'added/changed ' : 'removed ';
     const amount = `${files.length} file(s): `;
     const fileList = `${files.join(', ')}.\n`;
     const errMsg = `${err} \n`;
