@@ -52,5 +52,4 @@ secrets.json
 .ruby-version
 lerna-debug.log
 /packages/slate-cli/lib/
-/packages/slate-tools/lib/
 .changelog/
