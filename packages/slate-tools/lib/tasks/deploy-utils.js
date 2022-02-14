@@ -24,16 +24,16 @@ function deploy(env) {
   return new Promise(function (resolve, reject) {
     debug('themekit cwd to: ' + config.dist.root);
 
-    themekit.command({
-      args: ['replace', '--env', env],
-      cwd: config.dist.root
-    }, function (err) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
+    try {
+      themekit.command('deploy',
+        {env},
+        {cwd: config.dist.root}
+      ).then(() => {
+        resolve()
+      })
+    } catch (err) {
+      reject(err);
+    }
   }).catch(function (err) {
     messages.logTransferFailed(err);
   });

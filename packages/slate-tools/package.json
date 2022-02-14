@@ -1,10 +1,10 @@
 {
-  "name": "@shopify/slate-tools",
+  "name": "@pivotmade/slate-tools",
   "version": "0.14.0",
-  "description": "Tooling for Shopify themes",
+  "description": "Tooling for Shopify themes - Working on Apple Silicon. Forked from @shopify/slate-tools",
   "main": "lib/gulpfile.js",
   "license": "MIT",
-  "author": "Shopify Inc.",
+  "author": "Pivot Made",
   "dependencies": {
     "@shopify/theme-lint": "1.0.3",
     "@shopify/themekit": "1.1.9",
